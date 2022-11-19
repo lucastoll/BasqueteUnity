@@ -5,15 +5,16 @@ using UnityEngine.UI;
 
 public class ResetNaMorte : MonoBehaviour
 {
-    public float threshold = -10f;
+    public float threshold = -30f;
     public Transform target;
     public Vector3 startPosition;
     public Button resetButton;
+    public GameObject pontoDeReset;
 
 
     void Awake()
     {
-        startPosition = new Vector3(4f, 0.05f, 0f);
+        startPosition = new Vector3(51.78f, -19.344f, -21.442f);
         resetButton.onClick.AddListener(Reset);
     }
 
@@ -27,6 +28,6 @@ public class ResetNaMorte : MonoBehaviour
 
     void Reset()
     {
-        target.position = startPosition;
+        target.position = pontoDeReset.transform.position;
     }
 }

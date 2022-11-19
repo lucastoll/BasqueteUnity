@@ -13,13 +13,8 @@ public class Move2 : MonoBehaviour
 
 	public float jumpForce = 3.0f;
 	public float mass = 3.0f;
-	private Rigidbody rigidbody;
-    private bool isGround = true;
-	public int colidiu = 1;
-
     public float _velocidade = 20.0f;
-	public float _girar = 60.0f;
-
+	private Rigidbody rigidbody;
 	public bool canJump = true;
 
     // Start is called before the first frame update
@@ -75,6 +70,5 @@ public class Move2 : MonoBehaviour
 	public void SetCanJump()
     {
 		canJump = true;
-
 	}
 }
