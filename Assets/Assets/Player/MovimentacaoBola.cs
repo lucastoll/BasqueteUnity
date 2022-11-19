@@ -13,9 +13,10 @@ public class MovimentacaoBola : MonoBehaviour
 
     private bool canJump = true;
 
-void Awake()
+void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.mass = 1f;
     }
 
     // Update is called once per frame
@@ -24,8 +25,9 @@ void Awake()
         ProcessInputs();
         if (Input.GetKeyDown(KeyCode.Space) && canJump == true)
         {
+            rb.isKinematic = false;
             canJump = false;
-            GetComponent<Rigidbody>().AddForce(Vector3.up * 400);
+            rb.AddForce(Vector3.up * 400);
             Invoke("JumpPermission", 4);
         }
     }
@@ -38,6 +40,7 @@ void Awake()
     private void ProcessInputs()
     {
         xInput = Input.GetAxis("Horizontal");
+        Debug.Log(xInput);
         zInput = Input.GetAxis("Vertical");
     }
 

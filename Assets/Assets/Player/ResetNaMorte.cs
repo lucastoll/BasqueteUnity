@@ -8,19 +8,25 @@ public class ResetNaMorte : MonoBehaviour
     public float threshold = -10f;
     public Transform target;
     public Vector3 startPosition;
-    [SerializeField] private Image customImage;
+    public Button resetButton;
+
 
     void Awake()
     {
-        startPosition = target.position;
+        startPosition = new Vector3(4f, 0.05f, 0f);
+        resetButton.onClick.AddListener(Reset);
     }
 
     void Update()
     {
      if(transform.position.y < threshold || Input.GetKeyDown("r"))
         {
-            target.position = startPosition;
-            customImage.enabled = false;
+            Reset();
         }
+    }
+
+    void Reset()
+    {
+        target.position = startPosition;
     }
 }
